@@ -12,4 +12,19 @@ export class CarsService {
         const createdCar = await this.carModel.create(createCarDto);
         return createdCar;
     }
+
+    async findAll(): Promise<Car[]> {
+        return this.carModel.find().exec();
+    }
+
+    async findById(id: string): Promise<Car> {
+        return this.carModel.findById(id).exec();
+    }
+
+    async deleteById(id: string): Promise<Car> {
+        const deleteCar = await this.carModel
+            .findByIdAndDelete({ _id: id })
+            .exec();
+        return deleteCar;
+    }
 }

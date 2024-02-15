@@ -3,3 +3,7 @@ export class CreateCarDto {
     readonly price: string;
     readonly description: string;
 }
+
+export class CreateStatusDto {
+    readonly name: string;
+}
